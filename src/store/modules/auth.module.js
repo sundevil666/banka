@@ -28,6 +28,7 @@ export default {
         commit('setToken', data.idToken)
       } catch (e) {
         console.log(error(e.response.data.error.message));
+        throw new Error()
       }
     }
   },

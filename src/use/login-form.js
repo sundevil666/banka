@@ -33,8 +33,12 @@ export function useLoginForm() {
     }
   })
   const onSubmit = handleSubmit(async values => {
-    await store.dispatch('auth/login', values)
-    router.push({name: 'Home'})
+    try {
+      await store.dispatch('auth/login', values)
+      router.push({name: 'Home'})
+    } catch (e) {
+      console.log(e);
+    }
   })
   return {
     email,
