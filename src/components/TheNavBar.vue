@@ -9,14 +9,28 @@
         <router-link to="/">Помощь</router-link>
       </li>
       <li><a href="#">Помощь</a></li>
-      <li><a href="#">Выход</a></li>
+      <li><a href="#" @click.prevent="logout">Выход</a></li>
     </ul>
   </nav>
 </template>
 
 <script>
+import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
+
 export default {
-  name: "TheNavBar"
+  name: "TheNavBar",
+  setup() {
+    const router = useRouter()
+    const store = useStore()
+
+    return {
+      logout: () => {
+        store.commit('auth/logout')
+        router.push({name: 'Auth'})
+      }
+    }
+  }
 }
 </script>
 
