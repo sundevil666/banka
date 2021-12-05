@@ -1,6 +1,8 @@
 <template>
   <the-nav-bar />
-  <div>MainLayout</div>
+  <div class="container with-nav">
+    <router-view/>
+  </div>
 </template>
 
 <script>

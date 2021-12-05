@@ -1,8 +1,6 @@
 <template>
-  <div class="container with-nav">
-    <div class="card">
-      AuthLayout
-    </div>
+  <div class="container">
+    <router-view/>
   </div>
 </template>
 
