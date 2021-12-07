@@ -6,7 +6,7 @@
         <router-link to="/">Заявки</router-link>
       </li>
       <li>
-        <router-link to="/">Помощь</router-link>
+        <router-link to="/help">Помощь</router-link>
       </li>
       <li><a href="#">Помощь</a></li>
       <li><a href="#" @click.prevent="logout">Выход</a></li>
