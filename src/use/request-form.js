@@ -1,7 +1,7 @@
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 
-export function useRequestForm () {
+export function useRequestForm (fn) {
   const { isSubmitting, handleSubmit } = useForm({
     initialValues: {
       status: 'active'
@@ -28,9 +28,7 @@ export function useRequestForm () {
   )
   const {value: status} = useField('status')
 
-  const onSubmit = handleSubmit(async () => {
-
-  })
+  const onSubmit = handleSubmit(fn)
   return {
     status,
     isSubmitting,

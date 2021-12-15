@@ -31,12 +31,22 @@
 <script>
 
 import {useRequestForm} from "../../use/request-form";
+import { useStore } from 'vuex'
 
 export default {
   name: "RequestModal",
-  setup() {
+  emits: ['created'],
+  setup(_, { emit }) {
+    const store = useStore()
+
+    const submit = async values => {
+      await store.dispatch('requests/create', values)
+      console.log(values);
+      emit('created')
+    }
+
     return {
-      ...useRequestForm()
+      ...useRequestForm(submit)
     }
   }
 }
