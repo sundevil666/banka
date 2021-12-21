@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 export default {
   name: "AppStatus",
@@ -31,12 +31,16 @@ export default {
     const textMap = {
       active: 'Активен',
       cancelled: 'Отменен',
-      done: 'Завершон',
+      done: 'Завершен',
       pending: 'Выполняется'
     }
     const className = ref(classesMap[props.type])
     const text = ref(textMap[props.type])
 
+    watch(props, val => {
+      className.value = classesMap[val.type]
+      text.value = textMap[val.type]
+    })
     return {
       className,
       text
